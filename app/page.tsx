@@ -134,31 +134,6 @@ ${titleForScore(score)}`
         <div style={styles.card}>
           <p style={styles.small}>DAILY TIMER #{dayNumber}</p>
           <h1 style={styles.title}>🎯 Daily Timer</h1>
-          <div
-  style={{
-    background: "#0f172a",
-    borderRadius: "16px",
-    padding: "16px",
-    marginBottom: "24px",
-    border: "1px solid rgba(255,255,255,0.08)",
-  }}
->
-  <p
-    style={{
-      color: "#cbd5e1",
-      margin: 0,
-      lineHeight: "1.6",
-    }}
-  >
-    Press <strong>START</strong>, wait until you
-    think the target time has passed, then press
-    <strong> STOP</strong>.
-    <br />
-    <br />
-    Complete all 3 rounds and get the lowest
-    total error possible.
-  </p>
-</div>
           <h2>Already Completed</h2>
           <p style={styles.muted}>Come back tomorrow for a new challenge.</p>
 
@@ -190,6 +165,31 @@ ${titleForScore(score)}`
 
         <h1 style={styles.title}>🎯 Daily Timer</h1>
 
+          <div
+  style={{
+    background: "#0f172a",
+    borderRadius: "16px",
+    padding: "16px",
+    marginBottom: "24px",
+    border: "1px solid rgba(255,255,255,0.08)",
+  }}
+>
+  <p
+    style={{
+      color: "#cbd5e1",
+      margin: 0,
+      lineHeight: "1.6",
+    }}
+  >
+    Press <strong>START</strong>, wait until you
+    think the target time has passed, then press
+    <strong> STOP</strong>.
+    <br />
+    <br />
+    Complete all 3 rounds and get the lowest
+    total error possible.
+  </p>
+</div>
         {!finished && (
           <div style={styles.progress}>
             {[0, 1, 2].map((i) => (
