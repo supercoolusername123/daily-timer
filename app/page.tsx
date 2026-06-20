@@ -51,12 +51,20 @@ const dayNumber = Math.floor(
 useEffect(() => {
   const existing = localStorage.getItem(storageKey);
 
-  if (existing) {
-    setSaved(JSON.parse(existing));
+  if (!existing) {
+    setSaved(null);
+    return;
+  }
+
+  const parsed = JSON.parse(existing);
+
+  if (parsed.dayNumber === dayNumber) {
+    setSaved(parsed);
   } else {
+    localStorage.removeItem(storageKey);
     setSaved(null);
   }
-}, [storageKey]);
+}, [storageKey, dayNumber]);
 
   const target = targets[round];
 
@@ -102,11 +110,12 @@ useEffect(() => {
 
     localStorage.setItem(
       storageKey,
-      JSON.stringify({
-        totalScore,
-        roundResults,
-        title: titleForScore(totalScore),
-      })
+  JSON.stringify({
+  dayNumber,
+  totalScore,
+  roundResults,
+  title: titleForScore(totalScore),
+})
     );
   }, [finished, totalScore, roundResults, storageKey]);
 
