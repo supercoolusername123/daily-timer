@@ -9,13 +9,19 @@ type RoundResult = {
 };
 
 export default function Home() {
-  const startDate = new Date("2025-01-01");
-  const today = new Date();
+const startDate = new Date(2025, 0, 1); // Jan 1, 2025
+const now = new Date();
 
-  const dayNumber = Math.floor(
-    (today.getTime() - startDate.getTime()) /
-      (1000 * 60 * 60 * 24)
-  );
+const today = new Date(
+  now.getFullYear(),
+  now.getMonth(),
+  now.getDate()
+);
+
+const dayNumber = Math.floor(
+  (today.getTime() - startDate.getTime()) /
+    (1000 * 60 * 60 * 24)
+);
 
   const storageKey = `daily-timer-${dayNumber}`;
 
@@ -137,8 +143,6 @@ ${titleForScore(score)}`
         <div style={styles.card}>
           <p style={styles.small}>DAILY TIMER #{dayNumber}</p>
           <h1 style={styles.title}>🎯 Daily Timer</h1>
-          <p>Day Number: {dayNumber}</p>
-<p>Storage Key: {storageKey}</p>
           <h2>Already Completed</h2>
           <p style={styles.muted}>Come back tomorrow for a new challenge.</p>
 
@@ -169,8 +173,7 @@ ${titleForScore(score)}`
         <p style={styles.small}>DAILY TIMER #{dayNumber}</p>
 
         <h1 style={styles.title}>🎯 Daily Timer</h1>
-        <p>Day Number: {dayNumber}</p>
-<p>Storage Key: {storageKey}</p>
+
 
           <div
   style={{
