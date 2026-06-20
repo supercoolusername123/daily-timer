@@ -227,9 +227,27 @@ ${titleForScore(score)}`
 
         {result !== null && !finished && (
           <div>
-            <h2>
-              Error: {Math.abs(result - target).toFixed(2)}s
-            </h2>
+            <div>
+  <h2>You stopped at {result.toFixed(2)}s</h2>
+
+  <p style={{ color: "#94a3b8", marginBottom: 20 }}>
+    Target: {target.toFixed(2)}s
+  </p>
+
+  <h2>
+    Error: {Math.abs(result - target).toFixed(2)}s
+  </h2>
+
+  <button
+    style={styles.secondaryButton}
+    onClick={() => {
+      setRound(round + 1);
+      setResult(null);
+    }}
+  >
+    Next Round
+  </button>
+</div>
 
             <button
               style={styles.secondaryButton}
