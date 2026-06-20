@@ -42,12 +42,15 @@ export default function Home() {
   const [saved, setSaved] = useState<any>(null);
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    const existing = localStorage.getItem(storageKey);
-    if (existing) {
-      setSaved(JSON.parse(existing));
-    }
-  }, [storageKey]);
+useEffect(() => {
+  const existing = localStorage.getItem(storageKey);
+
+  if (existing) {
+    setSaved(JSON.parse(existing));
+  } else {
+    setSaved(null);
+  }
+}, [storageKey]);
 
   const target = targets[round];
 
@@ -134,6 +137,8 @@ ${titleForScore(score)}`
         <div style={styles.card}>
           <p style={styles.small}>DAILY TIMER #{dayNumber}</p>
           <h1 style={styles.title}>🎯 Daily Timer</h1>
+          <p>Day Number: {dayNumber}</p>
+<p>Storage Key: {storageKey}</p>
           <h2>Already Completed</h2>
           <p style={styles.muted}>Come back tomorrow for a new challenge.</p>
 
@@ -164,6 +169,8 @@ ${titleForScore(score)}`
         <p style={styles.small}>DAILY TIMER #{dayNumber}</p>
 
         <h1 style={styles.title}>🎯 Daily Timer</h1>
+        <p>Day Number: {dayNumber}</p>
+<p>Storage Key: {storageKey}</p>
 
           <div
   style={{
